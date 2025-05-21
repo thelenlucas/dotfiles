@@ -33,7 +33,12 @@
     userEmail = "thelenlucas028@gmail.com";
   };
 
-  programs.alacritty = { enable = true; };
+  programs.alacritty = {
+    enable = true;
+    theme = "base16_default_dark";
+  };
+
+  fonts.fontconfig.enable = true;
 
   home.sessionVariables = { fish_greeting = "Good Morning."; };
 

@@ -87,7 +87,7 @@
     wofi
   ];
 
-  fonts.packages = with pkgs; [ font-awesome ];
+  fonts.packages = with pkgs; [ fira nerd-fonts.fira-code font-awesome ];
 
   # Default editor
   environment.variables.EDITOR = "nvim";
