@@ -107,12 +107,13 @@
     setSocketVariable = true;
   };
 
-  #services.udev.extraRules = ''
-  #   ACTION=="add", SUBSYSTEM=="usb",
-  #   ATTR{idVendor}=="1ab2", ATTR{idProduct}=="0001",
-  #   MODE="0660", GROUP="video",
-  #   SYMLINK+="alvium_1800_nir"
-  # '';
+  services.udev.extraRules = ''
+    # Allied Vision Alvium 1800 U-501m – raw USB node
+    SUBSYSTEM=="usb", ATTR{idVendor}=="1ab2", ATTR{idProduct}=="0001", MODE="0660", GROUP="video", SYMLINK+="alvium-%k"
+
+    # If the camera registers as /dev/videoX instead, uncomment this:
+    # SUBSYSTEM=="video4linux", ATTRS{idVendor}=="1ab2", ATTRS{idProduct}=="0001", MODE="0660", GROUP="video", SYMLINK+="alvium%n"
+  '';
 
   #services.gnome.gnome-keyring.enable = true;
 

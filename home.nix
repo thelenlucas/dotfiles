@@ -11,6 +11,7 @@
     fzf
     tree
     git
+    gource # Git visualizer
 
     # x-top
     btop
