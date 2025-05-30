@@ -11,7 +11,12 @@
     fzf
     tree
     git
+    meld
     gource # Git visualizer
+    markdownlint-cli2
+
+    # I like
+    d2
 
     # x-top
     btop

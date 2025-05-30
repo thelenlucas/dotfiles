@@ -113,6 +113,15 @@
 
     # If the camera registers as /dev/videoX instead, uncomment this:
     # SUBSYSTEM=="video4linux", ATTRS{idVendor}=="1ab2", ATTRS{idProduct}=="0001", MODE="0660", GROUP="video", SYMLINK+="alvium%n"
+
+    # Radiacode
+
+    SUBSYSTEM=="usb", \
+      ATTR{idVendor}=="0483", \
+      ATTR{idProduct}=="f123", \
+      GROUP="dialout", \
+      MODE="0660", \
+      SYMLINK+="radia_code"
   '';
 
   #services.gnome.gnome-keyring.enable = true;
@@ -145,15 +154,8 @@
 
   users.users.lucas = {
     isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "docker"
-      "dialout"
-      "plugdev"
-      "uaccess"
-      "video"
-    ];
+    extraGroups =
+      [ "wheel" "networkmanager" "docker" "dialout" "uaccess" "video" ];
     shell = pkgs.fish;
   };
 
