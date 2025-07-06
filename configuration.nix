@@ -31,6 +31,8 @@
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
+  programs.steam.enable = true;
+
   # System packages
   environment.systemPackages = with pkgs; [
     grim
@@ -40,6 +42,7 @@
     kdePackages.dolphin
     firefox
     inputs.helix.packages."${pkgs.system}".helix
+    udiskie
     neovim
     nixos-generators
     fish
@@ -65,6 +68,7 @@
           ms-vscode-remote.remote-ssh
           github.copilot
           github.copilot-chat
+          vadimcn.vscode-lldb
           bbenoist.nix
           ms-python.python
           tamasfe.even-better-toml
@@ -124,7 +128,8 @@
       SYMLINK+="radia_code"
   '';
 
-  #services.gnome.gnome-keyring.enable = true;
+  services.udisks2.enable = true;
+  services.gvfs.enable = true;
 
   services.seatd.enable = true;
 

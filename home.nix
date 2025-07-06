@@ -14,9 +14,19 @@
     meld
     gource # Git visualizer
     markdownlint-cli2
+    unzip
+    nemo-with-extensions
 
     # I like
     d2
+    calibre
+
+    # nvim
+    vimPlugins.nvim-lspconfig
+
+    # Haskell
+    ghc
+    haskell-language-server
 
     # x-top
     btop
@@ -42,7 +52,17 @@
     enable = true;
     theme = "base16_default_dark";
   };
-
+  services.udiskie = {
+    enable = true;
+    settings = {
+      # workaround for
+      # https://github.com/nix-community/home-manager/issues/632
+      program_options = {
+        # replace with your favorite file manager
+        file_manager = "${pkgs.nemo-with-extensions}/bin/nemo";
+      };
+    };
+  };
   fonts.fontconfig.enable = true;
 
   home.sessionVariables = { fish_greeting = "Good Morning."; };
