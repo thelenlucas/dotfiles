@@ -30,7 +30,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./nixos/configuration.nix
-        ./hardware/laptop.nix
+        ./hardware/labtop.nix
 
         { networking.hostName = "labtop"; }
 
