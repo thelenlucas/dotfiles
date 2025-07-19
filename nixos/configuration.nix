@@ -59,20 +59,27 @@
     font-awesome
     nixfmt-classic
     (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        rust-lang.rust-analyzer
-        brettm12345.nixfmt-vscode
-        github.vscode-github-actions
-        jebbs.plantuml
-        ms-vscode-remote.remote-ssh
-        github.copilot
-        github.copilot-chat
-        vadimcn.vscode-lldb
-        bbenoist.nix
-        ms-python.python
-        tamasfe.even-better-toml
-        vscode-extensions.mkhl.direnv
-      ];
+      vscodeExtensions = with vscode-extensions;
+        [
+          rust-lang.rust-analyzer
+          brettm12345.nixfmt-vscode
+          github.vscode-github-actions
+          jebbs.plantuml
+          ms-vscode-remote.remote-ssh
+          github.copilot
+          github.copilot-chat
+          vadimcn.vscode-lldb
+          bbenoist.nix
+          ms-python.python
+          tamasfe.even-better-toml
+          vscode-extensions.mkhl.direnv
+
+        ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+          name = "d2";
+          publisher = "terrastruct";
+          version = "0.8.8";
+          sha256 = "sha256-nnljLG2VL7r8bu+xFOTBx5J2UBsdjOwtAzDDXKtK0os=";
+        }];
     })
     wofi
   ];

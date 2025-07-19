@@ -40,6 +40,9 @@
     # My stuff
     obsidian
     discord
+
+    # Geforce now :(
+    chromium
   ];
 
   programs.git = {
