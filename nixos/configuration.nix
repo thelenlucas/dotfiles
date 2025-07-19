@@ -111,6 +111,11 @@
     };
   };
 
+  services.openssh = {
+    enable = true;
+    ports = [ 22 ];
+  };
+
   programs.fish.enable = true;
 
   programs.lazygit.enable = true;
@@ -123,6 +128,9 @@
     extraGroups =
       [ "wheel" "networkmanager" "docker" "dialout" "uaccess" "video" ];
     shell = pkgs.fish;
+    openssh.authorizedKeys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGX9zNt4QTeDcfAPs8Hjfqmm1+dTeWZ6Wxx35RkVL0YL lucas@laptop"
+    ];
   };
 
   system.stateVersion = "24.11"; # Did you read the comment?
