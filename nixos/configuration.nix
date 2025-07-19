@@ -128,7 +128,7 @@
     extraGroups =
       [ "wheel" "networkmanager" "docker" "dialout" "uaccess" "video" ];
     shell = pkgs.fish;
-    openssh.authorizedKeys = [
+    openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGX9zNt4QTeDcfAPs8Hjfqmm1+dTeWZ6Wxx35RkVL0YL lucas@laptop"
     ];
   };
