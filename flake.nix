@@ -14,6 +14,26 @@
         ./nixos/configuration.nix
         ./hardware/laptop.nix
 
+        { networking.hostName = "laptop"; }
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.lucas = ./home/home.nix;
+        }
+
+      ];
+    };
+
+    nixosConfigurations.labtop = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./nixos/configuration.nix
+        ./hardware/laptop.nix
+
+        { networking.hostName = "labtop"; }
+
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
