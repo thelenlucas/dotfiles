@@ -31,7 +31,8 @@
       modules = [
         ./nixos/configuration.nix
         ./hardware/labtop.nix
-	./nixos/server_power.nix
+        ./nixos/server_power.nix
+        ./nixos/k3s.nix
 
         { networking.hostName = "labtop"; }
 

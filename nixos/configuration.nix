@@ -38,8 +38,11 @@
   environment.systemPackages = with pkgs; [
     grim
     slurp
+    gcc
+    nil # Nix language server
     wl-clipboard
     bluetui
+    cargo
     mako
     kdePackages.dolphin
     firefox
