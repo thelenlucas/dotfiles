@@ -13,6 +13,7 @@
     git
     meld
     gource # Git visualizer
+    jujutsu # Git replacement
     markdownlint-cli2
     unzip
     nemo-with-extensions
