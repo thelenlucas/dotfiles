@@ -7,9 +7,11 @@
     flake-utils.url = "github:numtide/flake-utils";
     nix-topology.url = "github:oddlama/nix-topology";
     nix-topology.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix = { url = "github:Mic92/sops-nix"; };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, flake-utils, nix-topology }:
+  outputs =
+    inputs@{ self, nixpkgs, home-manager, flake-utils, nix-topology, sops-nix }:
     {
       nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -26,6 +28,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.lucas = ./home/home.nix;
           }
+
+          sops-nix.nixosModules.sops
 
         ];
       };
@@ -48,6 +52,7 @@
             home-manager.users.lucas = ./home/home.nix;
           }
 
+          sops-nix.nixosModules.sops
         ];
       };
     } // flake-utils.lib.eachDefaultSystem (system: rec {

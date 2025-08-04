@@ -34,6 +34,12 @@
 
   services.blueman.enable = true;
 
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
   # System packages
   environment.systemPackages = with pkgs; [
     grim
@@ -49,6 +55,8 @@
     udiskie
     neovim
     nixos-generators
+    gnupg
+    age
     fish
     cargo-generate
     git
