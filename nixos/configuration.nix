@@ -54,6 +54,7 @@
     firefox
     udiskie
     neovim
+    iosevka # Font
     nixos-generators
     gnupg
     age
