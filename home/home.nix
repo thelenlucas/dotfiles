@@ -14,6 +14,7 @@
     meld
     gource # Git visualizer
     jujutsu # Git replacement
+    lazyjj
     markdownlint-cli2
     unzip
     nemo-with-extensions
