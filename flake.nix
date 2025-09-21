@@ -18,6 +18,7 @@
         modules = [
           ./nixos/configuration.nix
           ./hardware/laptop.nix
+          ./nixos/hyprland.nix
           nix-topology.nixosModules.default
 
           { networking.hostName = "laptop"; }
@@ -40,7 +41,6 @@
           ./nixos/configuration.nix
           ./hardware/labtop.nix
           ./nixos/server_power.nix
-          ./nixos/k3s.nix
           nix-topology.nixosModules.default
 
           { networking.hostName = "labtop"; }
@@ -51,8 +51,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.lucas = ./home/home.nix;
           }
-
-          sops-nix.nixosModules.sops
         ];
       };
     } // flake-utils.lib.eachDefaultSystem (system: rec {

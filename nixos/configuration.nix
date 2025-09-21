@@ -10,10 +10,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Extra modules
-  boot.extraModulePackages = with config.boot.kernelPackages;
-    [ rtl88xxau-aircrack ];
-
   nixpkgs.config.allowUnfree = true;
 
   # Allow flakes
@@ -50,8 +46,6 @@
     bluetui
     cargo
     mako
-    kdePackages.dolphin
-    firefox
     udiskie
     neovim
     iosevka # Font
@@ -62,57 +56,16 @@
     cargo-generate
     git
     ansible
-    plantuml
-    kitty
-    waybar
     direnv
     python311
-    direnv
     font-awesome
     nixfmt-classic
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions;
-        [
-          rust-lang.rust-analyzer
-          brettm12345.nixfmt-vscode
-          github.vscode-github-actions
-          jebbs.plantuml
-          ms-vscode-remote.remote-ssh
-          github.copilot
-          github.copilot-chat
-          vadimcn.vscode-lldb
-          bbenoist.nix
-          ms-python.python
-          tamasfe.even-better-toml
-          vscode-extensions.mkhl.direnv
-
-        ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
-          name = "d2";
-          publisher = "terrastruct";
-          version = "0.8.8";
-          sha256 = "sha256-nnljLG2VL7r8bu+xFOTBx5J2UBsdjOwtAzDDXKtK0os=";
-        }];
-    })
-    wofi
   ];
 
   fonts.packages = with pkgs; [ fira nerd-fonts.fira-code font-awesome ];
 
   # Default editor
   environment.variables.EDITOR = "nvim";
-  environment.variables.NIXOS_OZONE_WL = "1";
-
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-  };
-
-  # Docker
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
 
   services.udisks2.enable = true;
   services.gvfs.enable = true;
@@ -144,8 +97,7 @@
 
   users.users.lucas = {
     isNormalUser = true;
-    extraGroups =
-      [ "wheel" "networkmanager" "docker" "dialout" "uaccess" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "dialout" "uaccess" "video" ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGX9zNt4QTeDcfAPs8Hjfqmm1+dTeWZ6Wxx35RkVL0YL lucas@laptop"
