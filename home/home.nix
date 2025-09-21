@@ -23,8 +23,11 @@
     d2
     calibre
 
-    # nvim
+    # Editors
     vimPlugins.nvim-lspconfig
+    zed-editor
+
+    vlc
 
     # Haskell
     ghc
