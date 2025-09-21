@@ -41,6 +41,8 @@
           ./nixos/configuration.nix
           ./hardware/labtop.nix
           ./nixos/server_power.nix
+          ./nixos/networking/wireguard.nix
+          ./nixos/k3s.nix
           nix-topology.nixosModules.default
 
           { networking.hostName = "labtop"; }

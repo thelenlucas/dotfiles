@@ -4,6 +4,4 @@
   ];
   services.k3s.enable = true;
   services.k3s.role = "server";
-
-  environment.systemPackages = with pkgs; [ kubernetes-helm helmfile ];
 }
